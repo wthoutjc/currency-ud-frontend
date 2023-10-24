@@ -1,13 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Divider, Typography } from "@mui/material";
 
 export default function Home() {
   return (
-    <Box
-      sx={{
-        display: "flex",
-      }}
-    >
-      <Typography variant="h4">Welcome to Currency App</Typography>
-    </Box>
+    <>
+      <Typography variant="h5" sx={{ mb: 2 }}>
+        Welcome to Currency App
+      </Typography>
+      <Divider />
+    </>
   );
 }

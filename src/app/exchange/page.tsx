@@ -1,5 +1,14 @@
+import { Divider, Typography } from "@mui/material";
+
 const ExchangePage = () => {
-  return <div>Soy ExchangePage</div>;
+  return (
+    <>
+      <Typography variant="h5" sx={{ mb: 2 }}>
+        Manage Exchange Rates
+      </Typography>
+      <Divider />
+    </>
+  );
 };
 
 export default ExchangePage;

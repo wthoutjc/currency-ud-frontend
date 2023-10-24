@@ -32,7 +32,15 @@ export default function RootLayout({ children }: Props) {
             }}
           >
             <SideDrawer />
-            {children}
+            <Box
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                width: "100%",
+              }}
+            >
+              {children}
+            </Box>
           </Box>
         </body>
       </ThemeRegistry>
