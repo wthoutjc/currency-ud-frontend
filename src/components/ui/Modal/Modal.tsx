@@ -5,10 +5,14 @@ import { Box, Divider, IconButton, Typography } from "@mui/material";
 import { useModalStore } from "@/zustand";
 
 // Components - Forms
+import { NewExchangeForm } from "@/components/exchange/NewExchangeForm";
 import { NewCurrencyForm } from "@/components/currency/NewCurrencyForm";
 
 // Icons
 import CloseIcon from "@mui/icons-material/Close";
+
+// Interfaces
+import { Currency, ExchangeRate } from "@/interfaces";
 
 const Modal = () => {
   const { modal, hideModal } = useModalStore();
@@ -47,20 +51,29 @@ const Modal = () => {
           <Typography variant="h5" sx={{ mb: 1 }}>
             {modalType === "new-currency" && "New Currency"}
             {modalType === "update-currency" && "Update Currency"}
+            {modalType === "new-exchange" && "New Exchange"}
+            {modalType === "update-exchange" && "Update Exchange"}
           </Typography>
           <IconButton onClick={hideModal}>
             <CloseIcon />
           </IconButton>
         </Box>
         <Divider sx={{ mb: 2 }} />
-        {modalType === "new-currency" ||
-          (modalType === "update-currency" && (
-            <NewCurrencyForm
-              update={!!modalProps}
-              currency={modalProps}
-              hideModal={hideModal}
-            />
-          ))}
+        {modalType === "new-currency" || modalType === "update-currency" ? (
+          <NewCurrencyForm
+            update={!!modalProps}
+            currency={modalProps as Currency}
+            hideModal={hideModal}
+          />
+        ) : modalType === "new-exchange" || modalType === "update-exchange" ? (
+          <NewExchangeForm
+            update={modalProps}
+            exchange={modalProps as ExchangeRate}
+            hideModal={hideModal}
+          />
+        ) : (
+          <></>
+        )}
       </Box>
     </Box>
   );

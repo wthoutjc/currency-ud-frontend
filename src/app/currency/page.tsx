@@ -4,7 +4,7 @@ import { Box, Divider, IconButton, Typography } from "@mui/material";
 import { Currencies, NewCurrency } from "@/components";
 
 // Services
-import { getCurrencies } from "@/services/currency";
+import { getCurrencies } from "@/services";
 
 // Icons
 import ReplayIcon from "@mui/icons-material/Replay";

@@ -11,16 +11,13 @@ import { registerCurrency, updateCurrency } from "@/services";
 // Icons
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
 
-interface CurrencyFormProps {
-  id?: number;
-  code: string;
-  name: string;
-}
+// Interfaces
+import { Currency } from "@/interfaces";
 
 interface Props {
   hideModal: () => void;
   update: boolean;
-  currency?: CurrencyFormProps;
+  currency?: Currency;
 }
 
 const NewCurrencyForm = ({ hideModal, update, currency }: Props) => {
@@ -31,22 +28,22 @@ const NewCurrencyForm = ({ hideModal, update, currency }: Props) => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<CurrencyFormProps>({
+  } = useForm<Currency>({
     defaultValues: {
       code: currency?.code || "",
       name: currency?.name || "",
     },
   });
 
-  const onSubmit = async (data: CurrencyFormProps) => {
+  const onSubmit = async (data: Currency) => {
     setLoading(true);
     if (update && currency) {
-      const res = await updateCurrency(currency.id!, data);
+      await updateCurrency(currency.id!, data);
     } else {
-      const res = await registerCurrency(data);
+      await registerCurrency(data);
     }
     setLoading(false);
-    alert(update ? "Moneda actualizada " : "Moneda registrada");
+    alert(update ? "Currency updated" : "Currency registered");
     hideModal();
   };
 

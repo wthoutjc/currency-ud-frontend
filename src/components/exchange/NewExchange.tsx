@@ -7,14 +7,14 @@ import AddIcon from "@mui/icons-material/Add";
 // Zustand
 import { useModalStore } from "@/zustand";
 
-const NewCurrency = () => {
+const NewExchange = () => {
   const { showModal } = useModalStore();
 
   const handleShowModal = () => {
     showModal({
       show: true,
       modalProps: null,
-      modalType: "new-currency",
+      modalType: "new-exchange",
     });
   };
 
@@ -26,9 +26,9 @@ const NewCurrency = () => {
       size="small"
       onClick={handleShowModal}
     >
-      New Currency
+      New Exchange
     </Button>
   );
 };
 
-export { NewCurrency };
+export { NewExchange };
