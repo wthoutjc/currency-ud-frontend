@@ -1,13 +1,16 @@
-import { Divider, Typography } from "@mui/material";
+import { Box, Divider, IconButton, Typography } from "@mui/material";
 
 // Components
-import { Table } from "@/components";
+import { Currencies, NewCurrency } from "@/components";
 
 // Services
 import { getCurrencies } from "@/services/currency";
 
+// Icons
+import ReplayIcon from "@mui/icons-material/Replay";
+
 const CurrencyPage = async () => {
-  const { currencies } = await getCurrencies();
+  const currencies = await getCurrencies();
 
   return (
     <>
@@ -15,24 +18,25 @@ const CurrencyPage = async () => {
         Manage Currencies
       </Typography>
       <Divider />
-      {/* <Table
-        to="xd"
-        title="Currencies"
-        loading={false}
-        columns={["Cédula", "Cliente"]}
-        data={currencies}
-        context={{
-          update: {
-            enabled: false,
-          },
-          delete: {
-            enabled: false,
-          },
-          read: {
-            enabled: false,
-          },
-        }}
-      /> */}
+      <Box sx={{ display: "flex", flexDirection: "column", mt: 2 }}>
+        <Box
+          sx={{
+            display: "flex",
+          }}
+        >
+          <NewCurrency />
+          <IconButton sx={{ ml: 2 }}>
+            <ReplayIcon />
+          </IconButton>
+        </Box>
+        <Box
+          sx={{
+            display: "flex",
+          }}
+        >
+          <Currencies currencies={currencies} />
+        </Box>
+      </Box>
     </>
   );
 };

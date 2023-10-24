@@ -1,4 +1,4 @@
-type ModalType = "notification" | "confirm" | "normal" | "custom";
+type ModalType = "new-currency" | "update-currency";
 
 export interface ModalState {
   modalType: ModalType | null;

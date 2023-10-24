@@ -1,2 +1,2 @@
 export * from "./SideDrawer";
-export * from "./Table";
+export * from "./Modal";
