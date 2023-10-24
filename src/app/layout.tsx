@@ -10,9 +10,9 @@ import { Modal, SideDrawer } from "@/components";
 const montserrat = Montserrat({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Frontend - MELI",
-  description: "Frontend - MELI",
-  keywords: ["Frontend - MELI"],
+  title: "Frontend - Currency",
+  description: "Frontend - Currency",
+  keywords: ["Frontend - Currency"],
 };
 
 interface Props {
