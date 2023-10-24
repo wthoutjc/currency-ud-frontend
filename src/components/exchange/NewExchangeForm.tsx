@@ -56,16 +56,16 @@ const NewExchangeForm = ({ hideModal, update, exchange }: Props) => {
         disabled={loading}
         type="number"
         autoComplete="to_currency_id"
-        placeholder="Ej: 1"
-        label="Moneda de origen"
+        placeholder="Ex: 1"
+        label="Origin currency"
         error={!!errors.from_currency_id}
         helperText={
           !!errors.from_currency_id
             ? errors.from_currency_id.message
-            : "El código de la moneda de origen es requerido"
+            : "The currency code is required"
         }
         {...register("from_currency_id", {
-          required: "El código de la moneda de origen es requerido",
+          required: "The currency code is required",
         })}
         value={watch("from_currency_id")}
         InputProps={{
@@ -82,16 +82,16 @@ const NewExchangeForm = ({ hideModal, update, exchange }: Props) => {
         disabled={loading}
         type="number"
         autoComplete="to_currency_id"
-        placeholder="Ej: 2"
-        label="Moneda de destino"
+        placeholder="Ex: 2"
+        label="Destination currency"
         error={!!errors.to_currency_id}
         helperText={
           !!errors.to_currency_id
             ? errors.to_currency_id.message
-            : "El código de la moneda de destino es requerido"
+            : "The currency code is required"
         }
         {...register("to_currency_id", {
-          required: "El código de la moneda de destino es requerido",
+          required: "The currency code is required",
         })}
         value={watch("to_currency_id")}
         InputProps={{
@@ -108,14 +108,14 @@ const NewExchangeForm = ({ hideModal, update, exchange }: Props) => {
         disabled={loading}
         type="number"
         autoComplete="rate"
-        placeholder="Ej: 1.5"
+        placeholder="Ex: 1.5"
         label="Tasa de cambio"
         error={!!errors.rate}
         helperText={
-          !!errors.rate ? errors.rate.message : "La tasa de cambio es requerida"
+          !!errors.rate ? errors.rate.message : "The rate is required"
         }
         {...register("rate", {
-          required: "La tasa de cambio es requerida",
+          required: "The rate is required",
         })}
         value={watch("rate")}
         InputProps={{

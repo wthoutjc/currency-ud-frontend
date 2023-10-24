@@ -55,19 +55,17 @@ const NewCurrencyForm = ({ hideModal, update, currency }: Props) => {
         disabled={loading}
         type="text"
         autoComplete="currency-code"
-        placeholder="Ej: USD"
+        placeholder="Ex: USD"
         label="Código"
         error={!!errors.code}
         helperText={
-          !!errors.code
-            ? errors.code.message
-            : "El código de la moneda es requerido"
+          !!errors.code ? errors.code.message : "The currency code is required"
         }
         {...register("code", {
-          required: "El código de la moneda es requerido",
+          required: "The currency code is required",
           validate: (value) => {
             if (value.length < 3) {
-              return "El código de la moneda debe tener al menos 3 caracteres";
+              return "The currency code must be at least 3 characters long";
             }
             return true;
           },
@@ -87,16 +85,14 @@ const NewCurrencyForm = ({ hideModal, update, currency }: Props) => {
         disabled={loading}
         type="text"
         autoComplete="currency-name"
-        placeholder="Ej: Dólar Americano"
+        placeholder="Ex: Dólar Americano"
         label="Nombre"
         error={!!errors.name}
         helperText={
-          !!errors.name
-            ? errors.name.message
-            : "El nombre de la moneda es requerido"
+          !!errors.name ? errors.name.message : "The currency name is required"
         }
         {...register("name", {
-          required: "El nombre de la moneda es requerido",
+          required: "The currency name is required",
         })}
         value={watch("name")}
         InputProps={{
